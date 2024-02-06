@@ -1,0 +1,586 @@
+2024-02-06 16:19:15 Job 30461616 started ...
+training_commands
+../train_sft.py --max_len 4096 --dataset datasets/Quest/ques_train.parquet --dataset_probs 1 --train_batch_size 8 --micro_train_batch_size 1 --max_samples 715 --pretrain models/CodeLlama-34b-Instruct-hf --save_path ./ckpt/34b_CodeLlama_test --save_steps -1 --logging_steps 1 --eval_steps -1 --zero_stage 2 --max_epochs 1 --bf16 --flash_attn --learning_rate 5e-6 --gradient_checkpointing --use_wandb 394c7970d1b0dd8466bae2e50f706f51975930ae --wandb_project LLM-FT --lora_rank 64 --lora_alpha 128
+++ pip install --user ../../
+++ pip install --user ../../
+++ pip install --user ../../
+Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple/
+Processing /dssg/home/acct-msejzh/msejzh-user1/OpenRLHF
+  Installing build dependencies: started
+Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple/
+Processing /dssg/home/acct-msejzh/msejzh-user1/OpenRLHF
+  Installing build dependencies: started
+Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple/
+Processing /dssg/home/acct-msejzh/msejzh-user1/OpenRLHF
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: bitsandbytes in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from openrlhf==0.1.0) (0.42.0)
+Requirement already satisfied: datasets in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from openrlhf==0.1.0) (2.14.7)
+Requirement already satisfied: deepspeed>=0.12.6 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from openrlhf==0.1.0) (0.13.0)
+Requirement already satisfied: einops in /dssg/home/acct-msejzh/msejzh-user1/.conda/envs/openrlhf/lib/python3.10/site-packages (from openrlhf==0.1.0) (0.7.0)
+Requirement already satisfied: flash-attn==2.4.2 in /dssg/home/acct-msejzh/msejzh-user1/.conda/envs/openrlhf/lib/python3.10/site-packages (from openrlhf==0.1.0) (2.4.2)
+Requirement already satisfied: isort in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from openrlhf==0.1.0) (5.13.2)
+Requirement already satisfied: jsonlines in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from openrlhf==0.1.0) (4.0.0)
+Requirement already satisfied: loralib in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from openrlhf==0.1.0) (0.1.2)
+Requirement already satisfied: optimum in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from openrlhf==0.1.0) (1.16.2)
+Requirement already satisfied: peft in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from openrlhf==0.1.0) (0.7.1)
+Requirement already satisfied: ray[default] in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from openrlhf==0.1.0) (2.8.1)
+Requirement already satisfied: torch in /dssg/home/acct-msejzh/msejzh-user1/.conda/envs/openrlhf/lib/python3.10/site-packages (from openrlhf==0.1.0) (2.1.0+cu118)
+Requirement already satisfied: torchmetrics in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from openrlhf==0.1.0) (1.2.1)
+Requirement already satisfied: tqdm in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from openrlhf==0.1.0) (4.66.1)
+Requirement already satisfied: transformers==4.36.2 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from openrlhf==0.1.0) (4.36.2)
+Requirement already satisfied: transformers-stream-generator in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from openrlhf==0.1.0) (0.0.4)
+Requirement already satisfied: wandb in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from openrlhf==0.1.0) (0.16.1)
+Requirement already satisfied: packaging in /dssg/home/acct-msejzh/msejzh-user1/.conda/envs/openrlhf/lib/python3.10/site-packages (from flash-attn==2.4.2->openrlhf==0.1.0) (23.2)
+Requirement already satisfied: ninja in /dssg/home/acct-msejzh/msejzh-user1/.conda/envs/openrlhf/lib/python3.10/site-packages (from flash-attn==2.4.2->openrlhf==0.1.0) (1.11.1.1)
+Requirement already satisfied: filelock in /dssg/home/acct-msejzh/msejzh-user1/.conda/envs/openrlhf/lib/python3.10/site-packages (from transformers==4.36.2->openrlhf==0.1.0) (3.9.0)
+Requirement already satisfied: huggingface-hub<1.0,>=0.19.3 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from transformers==4.36.2->openrlhf==0.1.0) (0.20.3)
+Requirement already satisfied: numpy>=1.17 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from transformers==4.36.2->openrlhf==0.1.0) (1.26.2)
+Requirement already satisfied: pyyaml>=5.1 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from transformers==4.36.2->openrlhf==0.1.0) (6.0.1)
+Requirement already satisfied: regex!=2019.12.17 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from transformers==4.36.2->openrlhf==0.1.0) (2023.10.3)
+Requirement already satisfied: requests in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from transformers==4.36.2->openrlhf==0.1.0) (2.31.0)
+Requirement already satisfied: tokenizers<0.19,>=0.14 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from transformers==4.36.2->openrlhf==0.1.0) (0.15.0)
+Requirement already satisfied: safetensors>=0.3.1 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from transformers==4.36.2->openrlhf==0.1.0) (0.4.1)
+Requirement already satisfied: hjson in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from deepspeed>=0.12.6->openrlhf==0.1.0) (3.1.0)
+Requirement already satisfied: psutil in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from deepspeed>=0.12.6->openrlhf==0.1.0) (5.9.6)
+Requirement already satisfied: py-cpuinfo in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from deepspeed>=0.12.6->openrlhf==0.1.0) (9.0.0)
+Requirement already satisfied: pydantic in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from deepspeed>=0.12.6->openrlhf==0.1.0) (1.10.13)
+Requirement already satisfied: pynvml in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from deepspeed>=0.12.6->openrlhf==0.1.0) (11.5.0)
+Requirement already satisfied: scipy in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from bitsandbytes->openrlhf==0.1.0) (1.12.0)
+Requirement already satisfied: pyarrow>=8.0.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from datasets->openrlhf==0.1.0) (14.0.1)
+Requirement already satisfied: pyarrow-hotfix in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from datasets->openrlhf==0.1.0) (0.6)
+Requirement already satisfied: dill<0.3.8,>=0.3.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from datasets->openrlhf==0.1.0) (0.3.7)
+Requirement already satisfied: pandas in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from datasets->openrlhf==0.1.0) (2.1.4)
+Requirement already satisfied: xxhash in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from datasets->openrlhf==0.1.0) (3.4.1)
+Requirement already satisfied: multiprocess in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from datasets->openrlhf==0.1.0) (0.70.15)
+Requirement already satisfied: fsspec<=2023.10.0,>=2023.1.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from fsspec[http]<=2023.10.0,>=2023.1.0->datasets->openrlhf==0.1.0) (2023.10.0)
+Requirement already satisfied: aiohttp in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from datasets->openrlhf==0.1.0) (3.9.1)
+Requirement already satisfied: attrs>=19.2.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from jsonlines->openrlhf==0.1.0) (23.1.0)
+Requirement already satisfied: coloredlogs in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from optimum->openrlhf==0.1.0) (15.0.1)
+Requirement already satisfied: sympy in /dssg/home/acct-msejzh/msejzh-user1/.conda/envs/openrlhf/lib/python3.10/site-packages (from optimum->openrlhf==0.1.0) (1.12)
+Requirement already satisfied: typing-extensions in /dssg/home/acct-msejzh/msejzh-user1/.conda/envs/openrlhf/lib/python3.10/site-packages (from torch->openrlhf==0.1.0) (4.4.0)
+Requirement already satisfied: networkx in /dssg/home/acct-msejzh/msejzh-user1/.conda/envs/openrlhf/lib/python3.10/site-packages (from torch->openrlhf==0.1.0) (3.0)
+Requirement already satisfied: jinja2 in /dssg/home/acct-msejzh/msejzh-user1/.conda/envs/openrlhf/lib/python3.10/site-packages (from torch->openrlhf==0.1.0) (3.1.2)
+Requirement already satisfied: triton==2.1.0 in /dssg/home/acct-msejzh/msejzh-user1/.conda/envs/openrlhf/lib/python3.10/site-packages (from torch->openrlhf==0.1.0) (2.1.0)
+Requirement already satisfied: accelerate>=0.21.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from peft->openrlhf==0.1.0) (0.25.0)
+Requirement already satisfied: click>=7.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from ray[default]->openrlhf==0.1.0) (8.1.7)
+Requirement already satisfied: jsonschema in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from ray[default]->openrlhf==0.1.0) (4.20.0)
+Requirement already satisfied: msgpack<2.0.0,>=1.0.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from ray[default]->openrlhf==0.1.0) (1.0.7)
+Requirement already satisfied: protobuf!=3.19.5,>=3.15.3 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from ray[default]->openrlhf==0.1.0) (4.25.1)
+Requirement already satisfied: aiosignal in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from ray[default]->openrlhf==0.1.0) (1.3.1)
+Requirement already satisfied: frozenlist in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from ray[default]->openrlhf==0.1.0) (1.4.0)
+Requirement already satisfied: aiohttp-cors in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from ray[default]->openrlhf==0.1.0) (0.7.0)
+Requirement already satisfied: colorful in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from ray[default]->openrlhf==0.1.0) (0.5.5)
+Requirement already satisfied: py-spy>=0.2.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from ray[default]->openrlhf==0.1.0) (0.3.14)
+Requirement already satisfied: gpustat>=1.0.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from ray[default]->openrlhf==0.1.0) (1.1.1)
+Requirement already satisfied: opencensus in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from ray[default]->openrlhf==0.1.0) (0.11.3)
+Requirement already satisfied: prometheus-client>=0.7.1 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from ray[default]->openrlhf==0.1.0) (0.19.0)
+Requirement already satisfied: smart-open in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from ray[default]->openrlhf==0.1.0) (6.4.0)
+Requirement already satisfied: virtualenv<20.21.1,>=20.0.24 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from ray[default]->openrlhf==0.1.0) (20.21.0)
+Requirement already satisfied: grpcio>=1.42.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from ray[default]->openrlhf==0.1.0) (1.60.0)
+Requirement already satisfied: lightning-utilities>=0.8.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from torchmetrics->openrlhf==0.1.0) (0.10.0)
+Requirement already satisfied: GitPython!=3.1.29,>=1.0.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from wandb->openrlhf==0.1.0) (3.1.40)
+Requirement already satisfied: sentry-sdk>=1.0.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from wandb->openrlhf==0.1.0) (1.39.1)
+Requirement already satisfied: docker-pycreds>=0.4.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from wandb->openrlhf==0.1.0) (0.4.0)
+Requirement already satisfied: setproctitle in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from wandb->openrlhf==0.1.0) (1.3.3)
+Requirement already satisfied: setuptools in /dssg/home/acct-msejzh/msejzh-user1/.conda/envs/openrlhf/lib/python3.10/site-packages (from wandb->openrlhf==0.1.0) (68.2.2)
+Requirement already satisfied: appdirs>=1.4.3 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from wandb->openrlhf==0.1.0) (1.4.4)
+Requirement already satisfied: multidict<7.0,>=4.5 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from aiohttp->datasets->openrlhf==0.1.0) (6.0.4)
+Requirement already satisfied: yarl<2.0,>=1.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from aiohttp->datasets->openrlhf==0.1.0) (1.9.4)
+Requirement already satisfied: async-timeout<5.0,>=4.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from aiohttp->datasets->openrlhf==0.1.0) (4.0.3)
+Requirement already satisfied: six>=1.4.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from docker-pycreds>=0.4.0->wandb->openrlhf==0.1.0) (1.16.0)
+Requirement already satisfied: gitdb<5,>=4.0.1 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from GitPython!=3.1.29,>=1.0.0->wandb->openrlhf==0.1.0) (4.0.11)
+Requirement already satisfied: nvidia-ml-py>=11.450.129 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from gpustat>=1.0.0->ray[default]->openrlhf==0.1.0) (12.535.133)
+Requirement already satisfied: blessed>=1.17.1 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from gpustat>=1.0.0->ray[default]->openrlhf==0.1.0) (1.20.0)
+Requirement already satisfied: charset-normalizer<4,>=2 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from requests->transformers==4.36.2->openrlhf==0.1.0) (3.3.2)
+Requirement already satisfied: idna<4,>=2.5 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from requests->transformers==4.36.2->openrlhf==0.1.0) (3.6)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from requests->transformers==4.36.2->openrlhf==0.1.0) (2.1.0)
+Requirement already satisfied: certifi>=2017.4.17 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from requests->transformers==4.36.2->openrlhf==0.1.0) (2023.11.17)
+Requirement already satisfied: sentencepiece!=0.1.92,>=0.1.91 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from transformers[sentencepiece]>=4.26.0->optimum->openrlhf==0.1.0) (0.1.99)
+Requirement already satisfied: distlib<1,>=0.3.6 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from virtualenv<20.21.1,>=20.0.24->ray[default]->openrlhf==0.1.0) (0.3.8)
+Requirement already satisfied: platformdirs<4,>=2.4 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from virtualenv<20.21.1,>=20.0.24->ray[default]->openrlhf==0.1.0) (3.11.0)
+Requirement already satisfied: humanfriendly>=9.1 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from coloredlogs->optimum->openrlhf==0.1.0) (10.0)
+Requirement already satisfied: MarkupSafe>=2.0 in /dssg/home/acct-msejzh/msejzh-user1/.conda/envs/openrlhf/lib/python3.10/site-packages (from jinja2->torch->openrlhf==0.1.0) (2.1.3)
+Requirement already satisfied: jsonschema-specifications>=2023.03.6 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from jsonschema->ray[default]->openrlhf==0.1.0) (2023.11.2)
+Requirement already satisfied: referencing>=0.28.4 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from jsonschema->ray[default]->openrlhf==0.1.0) (0.32.0)
+Requirement already satisfied: rpds-py>=0.7.1 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from jsonschema->ray[default]->openrlhf==0.1.0) (0.13.2)
+Requirement already satisfied: opencensus-context>=0.1.3 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from opencensus->ray[default]->openrlhf==0.1.0) (0.1.3)
+Requirement already satisfied: google-api-core<3.0.0,>=1.0.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from opencensus->ray[default]->openrlhf==0.1.0) (2.15.0)
+Requirement already satisfied: python-dateutil>=2.8.2 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from pandas->datasets->openrlhf==0.1.0) (2.8.2)
+Requirement already satisfied: pytz>=2020.1 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from pandas->datasets->openrlhf==0.1.0) (2023.3.post1)
+Requirement already satisfied: tzdata>=2022.1 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from pandas->datasets->openrlhf==0.1.0) (2023.3)
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+Requirement already satisfied: mpmath>=0.19 in /dssg/home/acct-msejzh/msejzh-user1/.conda/envs/openrlhf/lib/python3.10/site-packages (from sympy->optimum->openrlhf==0.1.0) (1.3.0)
+Requirement already satisfied: wcwidth>=0.1.4 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from blessed>=1.17.1->gpustat>=1.0.0->ray[default]->openrlhf==0.1.0) (0.2.12)
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+Requirement already satisfied: smmap<6,>=3.0.1 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from gitdb<5,>=4.0.1->GitPython!=3.1.29,>=1.0.0->wandb->openrlhf==0.1.0) (5.0.1)
+Requirement already satisfied: googleapis-common-protos<2.0.dev0,>=1.56.2 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from google-api-core<3.0.0,>=1.0.0->opencensus->ray[default]->openrlhf==0.1.0) (1.62.0)
+Requirement already satisfied: google-auth<3.0.dev0,>=2.14.1 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from google-api-core<3.0.0,>=1.0.0->opencensus->ray[default]->openrlhf==0.1.0) (2.25.2)
+Requirement already satisfied: cachetools<6.0,>=2.0.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from google-auth<3.0.dev0,>=2.14.1->google-api-core<3.0.0,>=1.0.0->opencensus->ray[default]->openrlhf==0.1.0) (5.3.2)
+Requirement already satisfied: pyasn1-modules>=0.2.1 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from google-auth<3.0.dev0,>=2.14.1->google-api-core<3.0.0,>=1.0.0->opencensus->ray[default]->openrlhf==0.1.0) (0.3.0)
+Requirement already satisfied: rsa<5,>=3.1.4 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from google-auth<3.0.dev0,>=2.14.1->google-api-core<3.0.0,>=1.0.0->opencensus->ray[default]->openrlhf==0.1.0) (4.9)
+Requirement already satisfied: pyasn1<0.6.0,>=0.4.6 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from pyasn1-modules>=0.2.1->google-auth<3.0.dev0,>=2.14.1->google-api-core<3.0.0,>=1.0.0->opencensus->ray[default]->openrlhf==0.1.0) (0.5.1)
+Building wheels for collected packages: openrlhf
+  Building wheel for openrlhf (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: bitsandbytes in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from openrlhf==0.1.0) (0.42.0)
+Requirement already satisfied: datasets in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from openrlhf==0.1.0) (2.14.7)
+Requirement already satisfied: deepspeed>=0.12.6 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from openrlhf==0.1.0) (0.13.0)
+Requirement already satisfied: einops in /dssg/home/acct-msejzh/msejzh-user1/.conda/envs/openrlhf/lib/python3.10/site-packages (from openrlhf==0.1.0) (0.7.0)
+Requirement already satisfied: flash-attn==2.4.2 in /dssg/home/acct-msejzh/msejzh-user1/.conda/envs/openrlhf/lib/python3.10/site-packages (from openrlhf==0.1.0) (2.4.2)
+Requirement already satisfied: isort in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from openrlhf==0.1.0) (5.13.2)
+Requirement already satisfied: jsonlines in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from openrlhf==0.1.0) (4.0.0)
+Requirement already satisfied: loralib in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from openrlhf==0.1.0) (0.1.2)
+Requirement already satisfied: optimum in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from openrlhf==0.1.0) (1.16.2)
+Requirement already satisfied: peft in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from openrlhf==0.1.0) (0.7.1)
+Requirement already satisfied: ray[default] in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from openrlhf==0.1.0) (2.8.1)
+Requirement already satisfied: torch in /dssg/home/acct-msejzh/msejzh-user1/.conda/envs/openrlhf/lib/python3.10/site-packages (from openrlhf==0.1.0) (2.1.0+cu118)
+Requirement already satisfied: torchmetrics in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from openrlhf==0.1.0) (1.2.1)
+Requirement already satisfied: tqdm in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from openrlhf==0.1.0) (4.66.1)
+Requirement already satisfied: transformers==4.36.2 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from openrlhf==0.1.0) (4.36.2)
+Requirement already satisfied: transformers-stream-generator in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from openrlhf==0.1.0) (0.0.4)
+Requirement already satisfied: wandb in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from openrlhf==0.1.0) (0.16.1)
+Requirement already satisfied: packaging in /dssg/home/acct-msejzh/msejzh-user1/.conda/envs/openrlhf/lib/python3.10/site-packages (from flash-attn==2.4.2->openrlhf==0.1.0) (23.2)
+Requirement already satisfied: ninja in /dssg/home/acct-msejzh/msejzh-user1/.conda/envs/openrlhf/lib/python3.10/site-packages (from flash-attn==2.4.2->openrlhf==0.1.0) (1.11.1.1)
+Requirement already satisfied: filelock in /dssg/home/acct-msejzh/msejzh-user1/.conda/envs/openrlhf/lib/python3.10/site-packages (from transformers==4.36.2->openrlhf==0.1.0) (3.9.0)
+Requirement already satisfied: huggingface-hub<1.0,>=0.19.3 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from transformers==4.36.2->openrlhf==0.1.0) (0.20.3)
+Requirement already satisfied: numpy>=1.17 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from transformers==4.36.2->openrlhf==0.1.0) (1.26.2)
+Requirement already satisfied: pyyaml>=5.1 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from transformers==4.36.2->openrlhf==0.1.0) (6.0.1)
+Requirement already satisfied: regex!=2019.12.17 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from transformers==4.36.2->openrlhf==0.1.0) (2023.10.3)
+Requirement already satisfied: requests in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from transformers==4.36.2->openrlhf==0.1.0) (2.31.0)
+Requirement already satisfied: tokenizers<0.19,>=0.14 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from transformers==4.36.2->openrlhf==0.1.0) (0.15.0)
+Requirement already satisfied: safetensors>=0.3.1 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from transformers==4.36.2->openrlhf==0.1.0) (0.4.1)
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: bitsandbytes in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from openrlhf==0.1.0) (0.42.0)
+Requirement already satisfied: datasets in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from openrlhf==0.1.0) (2.14.7)
+Requirement already satisfied: deepspeed>=0.12.6 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from openrlhf==0.1.0) (0.13.0)
+Requirement already satisfied: einops in /dssg/home/acct-msejzh/msejzh-user1/.conda/envs/openrlhf/lib/python3.10/site-packages (from openrlhf==0.1.0) (0.7.0)
+Requirement already satisfied: flash-attn==2.4.2 in /dssg/home/acct-msejzh/msejzh-user1/.conda/envs/openrlhf/lib/python3.10/site-packages (from openrlhf==0.1.0) (2.4.2)
+Requirement already satisfied: isort in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from openrlhf==0.1.0) (5.13.2)
+Requirement already satisfied: jsonlines in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from openrlhf==0.1.0) (4.0.0)
+Requirement already satisfied: loralib in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from openrlhf==0.1.0) (0.1.2)
+Requirement already satisfied: optimum in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from openrlhf==0.1.0) (1.16.2)
+Requirement already satisfied: peft in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from openrlhf==0.1.0) (0.7.1)
+Requirement already satisfied: ray[default] in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from openrlhf==0.1.0) (2.8.1)
+Requirement already satisfied: torch in /dssg/home/acct-msejzh/msejzh-user1/.conda/envs/openrlhf/lib/python3.10/site-packages (from openrlhf==0.1.0) (2.1.0+cu118)
+Requirement already satisfied: torchmetrics in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from openrlhf==0.1.0) (1.2.1)
+Requirement already satisfied: tqdm in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from openrlhf==0.1.0) (4.66.1)
+Requirement already satisfied: transformers==4.36.2 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from openrlhf==0.1.0) (4.36.2)
+Requirement already satisfied: transformers-stream-generator in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from openrlhf==0.1.0) (0.0.4)
+Requirement already satisfied: wandb in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from openrlhf==0.1.0) (0.16.1)
+Requirement already satisfied: packaging in /dssg/home/acct-msejzh/msejzh-user1/.conda/envs/openrlhf/lib/python3.10/site-packages (from flash-attn==2.4.2->openrlhf==0.1.0) (23.2)
+Requirement already satisfied: ninja in /dssg/home/acct-msejzh/msejzh-user1/.conda/envs/openrlhf/lib/python3.10/site-packages (from flash-attn==2.4.2->openrlhf==0.1.0) (1.11.1.1)
+Requirement already satisfied: hjson in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from deepspeed>=0.12.6->openrlhf==0.1.0) (3.1.0)
+Requirement already satisfied: psutil in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from deepspeed>=0.12.6->openrlhf==0.1.0) (5.9.6)
+Requirement already satisfied: py-cpuinfo in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from deepspeed>=0.12.6->openrlhf==0.1.0) (9.0.0)
+Requirement already satisfied: pydantic in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from deepspeed>=0.12.6->openrlhf==0.1.0) (1.10.13)
+Requirement already satisfied: pynvml in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from deepspeed>=0.12.6->openrlhf==0.1.0) (11.5.0)
+Requirement already satisfied: scipy in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from bitsandbytes->openrlhf==0.1.0) (1.12.0)
+Requirement already satisfied: pyarrow>=8.0.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from datasets->openrlhf==0.1.0) (14.0.1)
+Requirement already satisfied: pyarrow-hotfix in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from datasets->openrlhf==0.1.0) (0.6)
+Requirement already satisfied: dill<0.3.8,>=0.3.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from datasets->openrlhf==0.1.0) (0.3.7)
+Requirement already satisfied: pandas in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from datasets->openrlhf==0.1.0) (2.1.4)
+Requirement already satisfied: xxhash in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from datasets->openrlhf==0.1.0) (3.4.1)
+Requirement already satisfied: multiprocess in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from datasets->openrlhf==0.1.0) (0.70.15)
+Requirement already satisfied: fsspec<=2023.10.0,>=2023.1.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from fsspec[http]<=2023.10.0,>=2023.1.0->datasets->openrlhf==0.1.0) (2023.10.0)
+Requirement already satisfied: aiohttp in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from datasets->openrlhf==0.1.0) (3.9.1)
+Requirement already satisfied: attrs>=19.2.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from jsonlines->openrlhf==0.1.0) (23.1.0)
+Requirement already satisfied: coloredlogs in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from optimum->openrlhf==0.1.0) (15.0.1)
+Requirement already satisfied: sympy in /dssg/home/acct-msejzh/msejzh-user1/.conda/envs/openrlhf/lib/python3.10/site-packages (from optimum->openrlhf==0.1.0) (1.12)
+Requirement already satisfied: typing-extensions in /dssg/home/acct-msejzh/msejzh-user1/.conda/envs/openrlhf/lib/python3.10/site-packages (from torch->openrlhf==0.1.0) (4.4.0)
+Requirement already satisfied: networkx in /dssg/home/acct-msejzh/msejzh-user1/.conda/envs/openrlhf/lib/python3.10/site-packages (from torch->openrlhf==0.1.0) (3.0)
+Requirement already satisfied: jinja2 in /dssg/home/acct-msejzh/msejzh-user1/.conda/envs/openrlhf/lib/python3.10/site-packages (from torch->openrlhf==0.1.0) (3.1.2)
+Requirement already satisfied: triton==2.1.0 in /dssg/home/acct-msejzh/msejzh-user1/.conda/envs/openrlhf/lib/python3.10/site-packages (from torch->openrlhf==0.1.0) (2.1.0)
+Requirement already satisfied: accelerate>=0.21.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from peft->openrlhf==0.1.0) (0.25.0)
+Requirement already satisfied: click>=7.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from ray[default]->openrlhf==0.1.0) (8.1.7)
+Requirement already satisfied: jsonschema in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from ray[default]->openrlhf==0.1.0) (4.20.0)
+Requirement already satisfied: msgpack<2.0.0,>=1.0.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from ray[default]->openrlhf==0.1.0) (1.0.7)
+Requirement already satisfied: protobuf!=3.19.5,>=3.15.3 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from ray[default]->openrlhf==0.1.0) (4.25.1)
+Requirement already satisfied: aiosignal in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from ray[default]->openrlhf==0.1.0) (1.3.1)
+Requirement already satisfied: frozenlist in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from ray[default]->openrlhf==0.1.0) (1.4.0)
+Requirement already satisfied: aiohttp-cors in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from ray[default]->openrlhf==0.1.0) (0.7.0)
+Requirement already satisfied: colorful in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from ray[default]->openrlhf==0.1.0) (0.5.5)
+Requirement already satisfied: py-spy>=0.2.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from ray[default]->openrlhf==0.1.0) (0.3.14)
+Requirement already satisfied: gpustat>=1.0.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from ray[default]->openrlhf==0.1.0) (1.1.1)
+Requirement already satisfied: opencensus in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from ray[default]->openrlhf==0.1.0) (0.11.3)
+Requirement already satisfied: prometheus-client>=0.7.1 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from ray[default]->openrlhf==0.1.0) (0.19.0)
+Requirement already satisfied: filelock in /dssg/home/acct-msejzh/msejzh-user1/.conda/envs/openrlhf/lib/python3.10/site-packages (from transformers==4.36.2->openrlhf==0.1.0) (3.9.0)
+Requirement already satisfied: smart-open in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from ray[default]->openrlhf==0.1.0) (6.4.0)
+Requirement already satisfied: huggingface-hub<1.0,>=0.19.3 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from transformers==4.36.2->openrlhf==0.1.0) (0.20.3)
+Requirement already satisfied: numpy>=1.17 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from transformers==4.36.2->openrlhf==0.1.0) (1.26.2)
+Requirement already satisfied: virtualenv<20.21.1,>=20.0.24 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from ray[default]->openrlhf==0.1.0) (20.21.0)
+Requirement already satisfied: pyyaml>=5.1 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from transformers==4.36.2->openrlhf==0.1.0) (6.0.1)
+Requirement already satisfied: regex!=2019.12.17 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from transformers==4.36.2->openrlhf==0.1.0) (2023.10.3)
+Requirement already satisfied: grpcio>=1.42.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from ray[default]->openrlhf==0.1.0) (1.60.0)
+Requirement already satisfied: requests in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from transformers==4.36.2->openrlhf==0.1.0) (2.31.0)
+Requirement already satisfied: tokenizers<0.19,>=0.14 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from transformers==4.36.2->openrlhf==0.1.0) (0.15.0)
+Requirement already satisfied: safetensors>=0.3.1 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from transformers==4.36.2->openrlhf==0.1.0) (0.4.1)
+Requirement already satisfied: hjson in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from deepspeed>=0.12.6->openrlhf==0.1.0) (3.1.0)
+Requirement already satisfied: psutil in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from deepspeed>=0.12.6->openrlhf==0.1.0) (5.9.6)
+Requirement already satisfied: py-cpuinfo in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from deepspeed>=0.12.6->openrlhf==0.1.0) (9.0.0)
+Requirement already satisfied: pydantic in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from deepspeed>=0.12.6->openrlhf==0.1.0) (1.10.13)
+Requirement already satisfied: pynvml in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from deepspeed>=0.12.6->openrlhf==0.1.0) (11.5.0)
+Requirement already satisfied: scipy in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from bitsandbytes->openrlhf==0.1.0) (1.12.0)
+Requirement already satisfied: lightning-utilities>=0.8.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from torchmetrics->openrlhf==0.1.0) (0.10.0)
+Requirement already satisfied: GitPython!=3.1.29,>=1.0.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from wandb->openrlhf==0.1.0) (3.1.40)
+Requirement already satisfied: sentry-sdk>=1.0.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from wandb->openrlhf==0.1.0) (1.39.1)
+Requirement already satisfied: docker-pycreds>=0.4.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from wandb->openrlhf==0.1.0) (0.4.0)
+Requirement already satisfied: setproctitle in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from wandb->openrlhf==0.1.0) (1.3.3)
+Requirement already satisfied: setuptools in /dssg/home/acct-msejzh/msejzh-user1/.conda/envs/openrlhf/lib/python3.10/site-packages (from wandb->openrlhf==0.1.0) (68.2.2)
+Requirement already satisfied: appdirs>=1.4.3 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from wandb->openrlhf==0.1.0) (1.4.4)
+Requirement already satisfied: pyarrow>=8.0.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from datasets->openrlhf==0.1.0) (14.0.1)
+Requirement already satisfied: pyarrow-hotfix in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from datasets->openrlhf==0.1.0) (0.6)
+Requirement already satisfied: dill<0.3.8,>=0.3.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from datasets->openrlhf==0.1.0) (0.3.7)
+Requirement already satisfied: pandas in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from datasets->openrlhf==0.1.0) (2.1.4)
+Requirement already satisfied: xxhash in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from datasets->openrlhf==0.1.0) (3.4.1)
+Requirement already satisfied: multiprocess in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from datasets->openrlhf==0.1.0) (0.70.15)
+Requirement already satisfied: fsspec<=2023.10.0,>=2023.1.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from fsspec[http]<=2023.10.0,>=2023.1.0->datasets->openrlhf==0.1.0) (2023.10.0)
+Requirement already satisfied: aiohttp in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from datasets->openrlhf==0.1.0) (3.9.1)
+Requirement already satisfied: attrs>=19.2.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from jsonlines->openrlhf==0.1.0) (23.1.0)
+Requirement already satisfied: multidict<7.0,>=4.5 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from aiohttp->datasets->openrlhf==0.1.0) (6.0.4)
+Requirement already satisfied: yarl<2.0,>=1.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from aiohttp->datasets->openrlhf==0.1.0) (1.9.4)
+Requirement already satisfied: async-timeout<5.0,>=4.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from aiohttp->datasets->openrlhf==0.1.0) (4.0.3)
+Requirement already satisfied: six>=1.4.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from docker-pycreds>=0.4.0->wandb->openrlhf==0.1.0) (1.16.0)
+Requirement already satisfied: coloredlogs in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from optimum->openrlhf==0.1.0) (15.0.1)
+Requirement already satisfied: sympy in /dssg/home/acct-msejzh/msejzh-user1/.conda/envs/openrlhf/lib/python3.10/site-packages (from optimum->openrlhf==0.1.0) (1.12)
+Requirement already satisfied: typing-extensions in /dssg/home/acct-msejzh/msejzh-user1/.conda/envs/openrlhf/lib/python3.10/site-packages (from torch->openrlhf==0.1.0) (4.4.0)
+Requirement already satisfied: networkx in /dssg/home/acct-msejzh/msejzh-user1/.conda/envs/openrlhf/lib/python3.10/site-packages (from torch->openrlhf==0.1.0) (3.0)
+Requirement already satisfied: jinja2 in /dssg/home/acct-msejzh/msejzh-user1/.conda/envs/openrlhf/lib/python3.10/site-packages (from torch->openrlhf==0.1.0) (3.1.2)
+Requirement already satisfied: triton==2.1.0 in /dssg/home/acct-msejzh/msejzh-user1/.conda/envs/openrlhf/lib/python3.10/site-packages (from torch->openrlhf==0.1.0) (2.1.0)
+Requirement already satisfied: accelerate>=0.21.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from peft->openrlhf==0.1.0) (0.25.0)
+Requirement already satisfied: gitdb<5,>=4.0.1 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from GitPython!=3.1.29,>=1.0.0->wandb->openrlhf==0.1.0) (4.0.11)
+Requirement already satisfied: nvidia-ml-py>=11.450.129 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from gpustat>=1.0.0->ray[default]->openrlhf==0.1.0) (12.535.133)
+Requirement already satisfied: blessed>=1.17.1 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from gpustat>=1.0.0->ray[default]->openrlhf==0.1.0) (1.20.0)
+Requirement already satisfied: click>=7.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from ray[default]->openrlhf==0.1.0) (8.1.7)
+Requirement already satisfied: jsonschema in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from ray[default]->openrlhf==0.1.0) (4.20.0)
+Requirement already satisfied: msgpack<2.0.0,>=1.0.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from ray[default]->openrlhf==0.1.0) (1.0.7)
+Requirement already satisfied: protobuf!=3.19.5,>=3.15.3 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from ray[default]->openrlhf==0.1.0) (4.25.1)
+Requirement already satisfied: aiosignal in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from ray[default]->openrlhf==0.1.0) (1.3.1)
+Requirement already satisfied: frozenlist in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from ray[default]->openrlhf==0.1.0) (1.4.0)
+Requirement already satisfied: aiohttp-cors in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from ray[default]->openrlhf==0.1.0) (0.7.0)
+Requirement already satisfied: colorful in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from ray[default]->openrlhf==0.1.0) (0.5.5)
+Requirement already satisfied: py-spy>=0.2.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from ray[default]->openrlhf==0.1.0) (0.3.14)
+Requirement already satisfied: gpustat>=1.0.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from ray[default]->openrlhf==0.1.0) (1.1.1)
+Requirement already satisfied: opencensus in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from ray[default]->openrlhf==0.1.0) (0.11.3)
+Requirement already satisfied: prometheus-client>=0.7.1 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from ray[default]->openrlhf==0.1.0) (0.19.0)
+Requirement already satisfied: smart-open in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from ray[default]->openrlhf==0.1.0) (6.4.0)
+Requirement already satisfied: virtualenv<20.21.1,>=20.0.24 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from ray[default]->openrlhf==0.1.0) (20.21.0)
+Requirement already satisfied: grpcio>=1.42.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from ray[default]->openrlhf==0.1.0) (1.60.0)
+Requirement already satisfied: charset-normalizer<4,>=2 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from requests->transformers==4.36.2->openrlhf==0.1.0) (3.3.2)
+Requirement already satisfied: idna<4,>=2.5 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from requests->transformers==4.36.2->openrlhf==0.1.0) (3.6)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from requests->transformers==4.36.2->openrlhf==0.1.0) (2.1.0)
+Requirement already satisfied: certifi>=2017.4.17 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from requests->transformers==4.36.2->openrlhf==0.1.0) (2023.11.17)
+Requirement already satisfied: lightning-utilities>=0.8.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from torchmetrics->openrlhf==0.1.0) (0.10.0)
+Requirement already satisfied: sentencepiece!=0.1.92,>=0.1.91 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from transformers[sentencepiece]>=4.26.0->optimum->openrlhf==0.1.0) (0.1.99)
+Requirement already satisfied: GitPython!=3.1.29,>=1.0.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from wandb->openrlhf==0.1.0) (3.1.40)
+Requirement already satisfied: sentry-sdk>=1.0.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from wandb->openrlhf==0.1.0) (1.39.1)
+Requirement already satisfied: docker-pycreds>=0.4.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from wandb->openrlhf==0.1.0) (0.4.0)
+Requirement already satisfied: setproctitle in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from wandb->openrlhf==0.1.0) (1.3.3)
+Requirement already satisfied: setuptools in /dssg/home/acct-msejzh/msejzh-user1/.conda/envs/openrlhf/lib/python3.10/site-packages (from wandb->openrlhf==0.1.0) (68.2.2)
+Requirement already satisfied: distlib<1,>=0.3.6 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from virtualenv<20.21.1,>=20.0.24->ray[default]->openrlhf==0.1.0) (0.3.8)
+Requirement already satisfied: appdirs>=1.4.3 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from wandb->openrlhf==0.1.0) (1.4.4)
+Requirement already satisfied: platformdirs<4,>=2.4 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from virtualenv<20.21.1,>=20.0.24->ray[default]->openrlhf==0.1.0) (3.11.0)
+Requirement already satisfied: humanfriendly>=9.1 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from coloredlogs->optimum->openrlhf==0.1.0) (10.0)
+Requirement already satisfied: MarkupSafe>=2.0 in /dssg/home/acct-msejzh/msejzh-user1/.conda/envs/openrlhf/lib/python3.10/site-packages (from jinja2->torch->openrlhf==0.1.0) (2.1.3)
+Requirement already satisfied: multidict<7.0,>=4.5 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from aiohttp->datasets->openrlhf==0.1.0) (6.0.4)
+Requirement already satisfied: yarl<2.0,>=1.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from aiohttp->datasets->openrlhf==0.1.0) (1.9.4)
+Requirement already satisfied: async-timeout<5.0,>=4.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from aiohttp->datasets->openrlhf==0.1.0) (4.0.3)
+Requirement already satisfied: jsonschema-specifications>=2023.03.6 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from jsonschema->ray[default]->openrlhf==0.1.0) (2023.11.2)
+Requirement already satisfied: referencing>=0.28.4 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from jsonschema->ray[default]->openrlhf==0.1.0) (0.32.0)
+Requirement already satisfied: rpds-py>=0.7.1 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from jsonschema->ray[default]->openrlhf==0.1.0) (0.13.2)
+Requirement already satisfied: six>=1.4.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from docker-pycreds>=0.4.0->wandb->openrlhf==0.1.0) (1.16.0)
+Requirement already satisfied: opencensus-context>=0.1.3 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from opencensus->ray[default]->openrlhf==0.1.0) (0.1.3)
+Requirement already satisfied: google-api-core<3.0.0,>=1.0.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from opencensus->ray[default]->openrlhf==0.1.0) (2.15.0)
+Requirement already satisfied: gitdb<5,>=4.0.1 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from GitPython!=3.1.29,>=1.0.0->wandb->openrlhf==0.1.0) (4.0.11)
+Requirement already satisfied: nvidia-ml-py>=11.450.129 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from gpustat>=1.0.0->ray[default]->openrlhf==0.1.0) (12.535.133)
+Requirement already satisfied: blessed>=1.17.1 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from gpustat>=1.0.0->ray[default]->openrlhf==0.1.0) (1.20.0)
+Requirement already satisfied: python-dateutil>=2.8.2 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from pandas->datasets->openrlhf==0.1.0) (2.8.2)
+Requirement already satisfied: pytz>=2020.1 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from pandas->datasets->openrlhf==0.1.0) (2023.3.post1)
+Requirement already satisfied: tzdata>=2022.1 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from pandas->datasets->openrlhf==0.1.0) (2023.3)
+Requirement already satisfied: charset-normalizer<4,>=2 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from requests->transformers==4.36.2->openrlhf==0.1.0) (3.3.2)
+Requirement already satisfied: idna<4,>=2.5 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from requests->transformers==4.36.2->openrlhf==0.1.0) (3.6)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from requests->transformers==4.36.2->openrlhf==0.1.0) (2.1.0)
+Requirement already satisfied: certifi>=2017.4.17 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from requests->transformers==4.36.2->openrlhf==0.1.0) (2023.11.17)
+Requirement already satisfied: mpmath>=0.19 in /dssg/home/acct-msejzh/msejzh-user1/.conda/envs/openrlhf/lib/python3.10/site-packages (from sympy->optimum->openrlhf==0.1.0) (1.3.0)
+Requirement already satisfied: wcwidth>=0.1.4 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from blessed>=1.17.1->gpustat>=1.0.0->ray[default]->openrlhf==0.1.0) (0.2.12)
+Requirement already satisfied: smmap<6,>=3.0.1 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from gitdb<5,>=4.0.1->GitPython!=3.1.29,>=1.0.0->wandb->openrlhf==0.1.0) (5.0.1)
+Requirement already satisfied: googleapis-common-protos<2.0.dev0,>=1.56.2 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from google-api-core<3.0.0,>=1.0.0->opencensus->ray[default]->openrlhf==0.1.0) (1.62.0)
+Requirement already satisfied: google-auth<3.0.dev0,>=2.14.1 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from google-api-core<3.0.0,>=1.0.0->opencensus->ray[default]->openrlhf==0.1.0) (2.25.2)
+Requirement already satisfied: sentencepiece!=0.1.92,>=0.1.91 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from transformers[sentencepiece]>=4.26.0->optimum->openrlhf==0.1.0) (0.1.99)
+Requirement already satisfied: distlib<1,>=0.3.6 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from virtualenv<20.21.1,>=20.0.24->ray[default]->openrlhf==0.1.0) (0.3.8)
+Requirement already satisfied: platformdirs<4,>=2.4 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from virtualenv<20.21.1,>=20.0.24->ray[default]->openrlhf==0.1.0) (3.11.0)
+Requirement already satisfied: humanfriendly>=9.1 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from coloredlogs->optimum->openrlhf==0.1.0) (10.0)
+Requirement already satisfied: MarkupSafe>=2.0 in /dssg/home/acct-msejzh/msejzh-user1/.conda/envs/openrlhf/lib/python3.10/site-packages (from jinja2->torch->openrlhf==0.1.0) (2.1.3)
+Requirement already satisfied: jsonschema-specifications>=2023.03.6 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from jsonschema->ray[default]->openrlhf==0.1.0) (2023.11.2)
+Requirement already satisfied: referencing>=0.28.4 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from jsonschema->ray[default]->openrlhf==0.1.0) (0.32.0)
+Requirement already satisfied: rpds-py>=0.7.1 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from jsonschema->ray[default]->openrlhf==0.1.0) (0.13.2)
+Requirement already satisfied: opencensus-context>=0.1.3 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from opencensus->ray[default]->openrlhf==0.1.0) (0.1.3)
+Requirement already satisfied: google-api-core<3.0.0,>=1.0.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from opencensus->ray[default]->openrlhf==0.1.0) (2.15.0)
+Requirement already satisfied: cachetools<6.0,>=2.0.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from google-auth<3.0.dev0,>=2.14.1->google-api-core<3.0.0,>=1.0.0->opencensus->ray[default]->openrlhf==0.1.0) (5.3.2)
+Requirement already satisfied: pyasn1-modules>=0.2.1 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from google-auth<3.0.dev0,>=2.14.1->google-api-core<3.0.0,>=1.0.0->opencensus->ray[default]->openrlhf==0.1.0) (0.3.0)
+Requirement already satisfied: rsa<5,>=3.1.4 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from google-auth<3.0.dev0,>=2.14.1->google-api-core<3.0.0,>=1.0.0->opencensus->ray[default]->openrlhf==0.1.0) (4.9)
+Requirement already satisfied: pyasn1<0.6.0,>=0.4.6 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from pyasn1-modules>=0.2.1->google-auth<3.0.dev0,>=2.14.1->google-api-core<3.0.0,>=1.0.0->opencensus->ray[default]->openrlhf==0.1.0) (0.5.1)
+Requirement already satisfied: python-dateutil>=2.8.2 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from pandas->datasets->openrlhf==0.1.0) (2.8.2)
+Requirement already satisfied: pytz>=2020.1 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from pandas->datasets->openrlhf==0.1.0) (2023.3.post1)
+Requirement already satisfied: tzdata>=2022.1 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from pandas->datasets->openrlhf==0.1.0) (2023.3)
+Building wheels for collected packages: openrlhf
+  Building wheel for openrlhf (pyproject.toml): started
+Requirement already satisfied: mpmath>=0.19 in /dssg/home/acct-msejzh/msejzh-user1/.conda/envs/openrlhf/lib/python3.10/site-packages (from sympy->optimum->openrlhf==0.1.0) (1.3.0)
+Requirement already satisfied: wcwidth>=0.1.4 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from blessed>=1.17.1->gpustat>=1.0.0->ray[default]->openrlhf==0.1.0) (0.2.12)
+Requirement already satisfied: smmap<6,>=3.0.1 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from gitdb<5,>=4.0.1->GitPython!=3.1.29,>=1.0.0->wandb->openrlhf==0.1.0) (5.0.1)
+Requirement already satisfied: googleapis-common-protos<2.0.dev0,>=1.56.2 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from google-api-core<3.0.0,>=1.0.0->opencensus->ray[default]->openrlhf==0.1.0) (1.62.0)
+Requirement already satisfied: google-auth<3.0.dev0,>=2.14.1 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from google-api-core<3.0.0,>=1.0.0->opencensus->ray[default]->openrlhf==0.1.0) (2.25.2)
+  Building wheel for openrlhf (pyproject.toml): finished with status 'error'
+  error: subprocess-exited-with-error
+  
+  × Building wheel for openrlhf (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> [41 lines of output]
+      running bdist_wheel
+      running build
+      running build_py
+      copying openrlhf/__init__.py -> build/lib/openrlhf
+      copying openrlhf/datasets/pt_dataset.py -> build/lib/openrlhf/datasets
+      copying openrlhf/datasets/sft_dataset.py -> build/lib/openrlhf/datasets
+      copying openrlhf/datasets/__init__.py -> build/lib/openrlhf/datasets
+      copying openrlhf/datasets/reward_dataset.py -> build/lib/openrlhf/datasets
+      copying openrlhf/datasets/utils.py -> build/lib/openrlhf/datasets
+      copying openrlhf/datasets/prompts_dataset.py -> build/lib/openrlhf/datasets
+      copying openrlhf/utils/deepspeed.py -> build/lib/openrlhf/utils
+      copying openrlhf/utils/processor.py -> build/lib/openrlhf/utils
+      copying openrlhf/utils/logging.py -> build/lib/openrlhf/utils
+      copying openrlhf/utils/distributed_util.py -> build/lib/openrlhf/utils
+      copying openrlhf/utils/__init__.py -> build/lib/openrlhf/utils
+      copying openrlhf/utils/utils.py -> build/lib/openrlhf/utils
+      copying openrlhf/utils/deepspeed_utils.py -> build/lib/openrlhf/utils
+      copying openrlhf/models/model.py -> build/lib/openrlhf/models
+      copying openrlhf/models/actor.py -> build/lib/openrlhf/models
+      copying openrlhf/models/__init__.py -> build/lib/openrlhf/models
+      copying openrlhf/models/utils.py -> build/lib/openrlhf/models
+      copying openrlhf/models/loss.py -> build/lib/openrlhf/models
+      copying openrlhf/trainer/rm_trainer.py -> build/lib/openrlhf/trainer
+      copying openrlhf/trainer/ppo_trainer.py -> build/lib/openrlhf/trainer
+      copying openrlhf/trainer/__init__.py -> build/lib/openrlhf/trainer
+      copying openrlhf/trainer/dpo_trainer.py -> build/lib/openrlhf/trainer
+      copying openrlhf/trainer/sft_trainer.py -> build/lib/openrlhf/trainer
+      copying openrlhf/trainer/ppo_utils/replay_buffer.py -> build/lib/openrlhf/trainer/ppo_utils
+      copying openrlhf/trainer/ppo_utils/kl_controller.py -> build/lib/openrlhf/trainer/ppo_utils
+      copying openrlhf/trainer/ppo_utils/__init__.py -> build/lib/openrlhf/trainer/ppo_utils
+      copying openrlhf/trainer/ppo_utils/experience_maker.py -> build/lib/openrlhf/trainer/ppo_utils
+      copying openrlhf/trainer/ray/ppo_critic.py -> build/lib/openrlhf/trainer/ray
+      copying openrlhf/trainer/ray/ppo_actor.py -> build/lib/openrlhf/trainer/ray
+      copying openrlhf/trainer/ray/launcher.py -> build/lib/openrlhf/trainer/ray
+      copying openrlhf/trainer/ray/__init__.py -> build/lib/openrlhf/trainer/ray
+      copying openrlhf/trainer/ray/vllm_engine.py -> build/lib/openrlhf/trainer/ray
+      installing to build/bdist.linux-x86_64/wheel
+      running install
+      running install_lib
+      copying build/lib/openrlhf/models/model.py -> build/bdist.linux-x86_64/wheel/openrlhf/models
+      error: could not create 'build/bdist.linux-x86_64/wheel/openrlhf/models/model.py': Permission denied
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+  ERROR: Failed building wheel for openrlhf
+Failed to build openrlhf
+ERROR: Could not build wheels for openrlhf, which is required to install pyproject.toml-based projects
+Requirement already satisfied: cachetools<6.0,>=2.0.0 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from google-auth<3.0.dev0,>=2.14.1->google-api-core<3.0.0,>=1.0.0->opencensus->ray[default]->openrlhf==0.1.0) (5.3.2)
+Requirement already satisfied: pyasn1-modules>=0.2.1 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from google-auth<3.0.dev0,>=2.14.1->google-api-core<3.0.0,>=1.0.0->opencensus->ray[default]->openrlhf==0.1.0) (0.3.0)
+Requirement already satisfied: rsa<5,>=3.1.4 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from google-auth<3.0.dev0,>=2.14.1->google-api-core<3.0.0,>=1.0.0->opencensus->ray[default]->openrlhf==0.1.0) (4.9)
+Requirement already satisfied: pyasn1<0.6.0,>=0.4.6 in /dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages (from pyasn1-modules>=0.2.1->google-auth<3.0.dev0,>=2.14.1->google-api-core<3.0.0,>=1.0.0->opencensus->ray[default]->openrlhf==0.1.0) (0.5.1)
+Building wheels for collected packages: openrlhf
+  Building wheel for openrlhf (pyproject.toml): started
+  Building wheel for openrlhf (pyproject.toml): finished with status 'error'
+  error: subprocess-exited-with-error
+  
+  × Building wheel for openrlhf (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> [7 lines of output]
+      running bdist_wheel
+      running build
+      running build_py
+      copying openrlhf/__init__.py -> build/lib/openrlhf
+      copying openrlhf/datasets/pt_dataset.py -> build/lib/openrlhf/datasets
+      copying openrlhf/datasets/__init__.py -> build/lib/openrlhf/datasets
+      error: could not delete 'build/lib/openrlhf/datasets/__init__.py': No such file or directory
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+  ERROR: Failed building wheel for openrlhf
+Failed to build openrlhf
+ERROR: Could not build wheels for openrlhf, which is required to install pyproject.toml-based projects
+  Building wheel for openrlhf (pyproject.toml): finished with status 'error'
+  error: subprocess-exited-with-error
+  
+  × Building wheel for openrlhf (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> [41 lines of output]
+      running bdist_wheel
+      running build
+      running build_py
+      copying openrlhf/__init__.py -> build/lib/openrlhf
+      copying openrlhf/datasets/pt_dataset.py -> build/lib/openrlhf/datasets
+      copying openrlhf/datasets/sft_dataset.py -> build/lib/openrlhf/datasets
+      copying openrlhf/datasets/__init__.py -> build/lib/openrlhf/datasets
+      copying openrlhf/datasets/reward_dataset.py -> build/lib/openrlhf/datasets
+      copying openrlhf/datasets/utils.py -> build/lib/openrlhf/datasets
+      copying openrlhf/datasets/prompts_dataset.py -> build/lib/openrlhf/datasets
+      copying openrlhf/utils/deepspeed.py -> build/lib/openrlhf/utils
+      copying openrlhf/utils/processor.py -> build/lib/openrlhf/utils
+      copying openrlhf/utils/logging.py -> build/lib/openrlhf/utils
+      copying openrlhf/utils/distributed_util.py -> build/lib/openrlhf/utils
+      copying openrlhf/utils/__init__.py -> build/lib/openrlhf/utils
+      copying openrlhf/utils/utils.py -> build/lib/openrlhf/utils
+      copying openrlhf/utils/deepspeed_utils.py -> build/lib/openrlhf/utils
+      copying openrlhf/models/model.py -> build/lib/openrlhf/models
+      copying openrlhf/models/actor.py -> build/lib/openrlhf/models
+      copying openrlhf/models/__init__.py -> build/lib/openrlhf/models
+      copying openrlhf/models/utils.py -> build/lib/openrlhf/models
+      copying openrlhf/models/loss.py -> build/lib/openrlhf/models
+      copying openrlhf/trainer/rm_trainer.py -> build/lib/openrlhf/trainer
+      copying openrlhf/trainer/ppo_trainer.py -> build/lib/openrlhf/trainer
+      copying openrlhf/trainer/__init__.py -> build/lib/openrlhf/trainer
+      copying openrlhf/trainer/dpo_trainer.py -> build/lib/openrlhf/trainer
+      copying openrlhf/trainer/sft_trainer.py -> build/lib/openrlhf/trainer
+      copying openrlhf/trainer/ppo_utils/replay_buffer.py -> build/lib/openrlhf/trainer/ppo_utils
+      copying openrlhf/trainer/ppo_utils/kl_controller.py -> build/lib/openrlhf/trainer/ppo_utils
+      copying openrlhf/trainer/ppo_utils/__init__.py -> build/lib/openrlhf/trainer/ppo_utils
+      copying openrlhf/trainer/ppo_utils/experience_maker.py -> build/lib/openrlhf/trainer/ppo_utils
+      copying openrlhf/trainer/ray/ppo_critic.py -> build/lib/openrlhf/trainer/ray
+      copying openrlhf/trainer/ray/ppo_actor.py -> build/lib/openrlhf/trainer/ray
+      copying openrlhf/trainer/ray/launcher.py -> build/lib/openrlhf/trainer/ray
+      copying openrlhf/trainer/ray/__init__.py -> build/lib/openrlhf/trainer/ray
+      copying openrlhf/trainer/ray/vllm_engine.py -> build/lib/openrlhf/trainer/ray
+      installing to build/bdist.linux-x86_64/wheel
+      running install
+      running install_lib
+      copying build/lib/openrlhf/models/model.py -> build/bdist.linux-x86_64/wheel/openrlhf/models
+      error: could not create 'build/bdist.linux-x86_64/wheel/openrlhf/models/model.py': Permission denied
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+  ERROR: Failed building wheel for openrlhf
+Failed to build openrlhf
+ERROR: Could not build wheels for openrlhf, which is required to install pyproject.toml-based projects
+[2024-02-06 16:19:29,131] torch.distributed.run: [WARNING] 
+[2024-02-06 16:19:29,131] torch.distributed.run: [WARNING] *****************************************
+[2024-02-06 16:19:29,131] torch.distributed.run: [WARNING] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+[2024-02-06 16:19:29,131] torch.distributed.run: [WARNING] *****************************************
+[2024-02-06 16:19:34,667] torch.distributed.run: [WARNING] 
+[2024-02-06 16:19:34,667] torch.distributed.run: [WARNING] *****************************************
+[2024-02-06 16:19:34,667] torch.distributed.run: [WARNING] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+[2024-02-06 16:19:34,667] torch.distributed.run: [WARNING] *****************************************
+[2024-02-06 16:19:35,842] torch.distributed.run: [WARNING] 
+[2024-02-06 16:19:35,842] torch.distributed.run: [WARNING] *****************************************
+[2024-02-06 16:19:35,842] torch.distributed.run: [WARNING] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+[2024-02-06 16:19:35,842] torch.distributed.run: [WARNING] *****************************************
+[2024-02-06 16:20:03,737] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-02-06 16:20:03,737] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-02-06 16:20:03,737] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-02-06 16:20:03,738] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-02-06 16:20:03,997] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-02-06 16:20:03,997] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-02-06 16:20:03,997] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-02-06 16:20:03,997] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-02-06 16:20:03,998] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-02-06 16:20:03,998] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-02-06 16:20:03,998] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-02-06 16:20:03,998] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+/dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages/transformers/deepspeed.py:23: FutureWarning: transformers.deepspeed module is deprecated and will be removed in a future version. Please import deepspeed modules directly from transformers.integrations
+  warnings.warn(
+/dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages/transformers/deepspeed.py:23: FutureWarning: transformers.deepspeed module is deprecated and will be removed in a future version. Please import deepspeed modules directly from transformers.integrations
+  warnings.warn(
+/dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages/transformers/deepspeed.py:23: FutureWarning: transformers.deepspeed module is deprecated and will be removed in a future version. Please import deepspeed modules directly from transformers.integrations
+  warnings.warn(
+/dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages/transformers/deepspeed.py:23: FutureWarning: transformers.deepspeed module is deprecated and will be removed in a future version. Please import deepspeed modules directly from transformers.integrations
+  warnings.warn(
+/dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages/transformers/deepspeed.py:23: FutureWarning: transformers.deepspeed module is deprecated and will be removed in a future version. Please import deepspeed modules directly from transformers.integrations
+  warnings.warn(
+/dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages/transformers/deepspeed.py:23: FutureWarning: transformers.deepspeed module is deprecated and will be removed in a future version. Please import deepspeed modules directly from transformers.integrations
+  warnings.warn(
+/dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages/transformers/deepspeed.py:23: FutureWarning: transformers.deepspeed module is deprecated and will be removed in a future version. Please import deepspeed modules directly from transformers.integrations
+  warnings.warn(
+/dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages/transformers/deepspeed.py:23: FutureWarning: transformers.deepspeed module is deprecated and will be removed in a future version. Please import deepspeed modules directly from transformers.integrations
+  warnings.warn(
+/dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages/transformers/deepspeed.py:23: FutureWarning: transformers.deepspeed module is deprecated and will be removed in a future version. Please import deepspeed modules directly from transformers.integrations
+  warnings.warn(
+/dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages/transformers/deepspeed.py:23: FutureWarning: transformers.deepspeed module is deprecated and will be removed in a future version. Please import deepspeed modules directly from transformers.integrations
+  warnings.warn(
+/dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages/transformers/deepspeed.py:23: FutureWarning: transformers.deepspeed module is deprecated and will be removed in a future version. Please import deepspeed modules directly from transformers.integrations
+  warnings.warn(
+/dssg/home/acct-msejzh/msejzh-user1/.local/lib/python3.10/site-packages/transformers/deepspeed.py:23: FutureWarning: transformers.deepspeed module is deprecated and will be removed in a future version. Please import deepspeed modules directly from transformers.integrations
+  warnings.warn(
+[2024-02-06 16:20:07,349] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-02-06 16:20:07,349] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-02-06 16:20:07,349] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-02-06 16:20:07,349] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-02-06 16:20:07,884] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-02-06 16:20:07,884] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-02-06 16:20:07,884] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-02-06 16:20:07,886] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-02-06 16:20:07,978] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-02-06 16:20:07,978] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-02-06 16:20:07,978] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-02-06 16:20:07,978] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-02-06 16:20:07,978] [INFO] [comm.py:668:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]Loading checkpoint shards:  14%|█▍        | 1/7 [00:15<01:30, 15.12s/it]Loading checkpoint shards:  14%|█▍        | 1/7 [00:15<01:30, 15.13s/it]Loading checkpoint shards:  14%|█▍        | 1/7 [00:15<01:31, 15.20s/it]Loading checkpoint shards:  14%|█▍        | 1/7 [00:15<01:31, 15.33s/it]Loading checkpoint shards:  29%|██▊       | 2/7 [00:31<01:18, 15.78s/it]Loading checkpoint shards:  29%|██▊       | 2/7 [00:31<01:19, 15.92s/it]Loading checkpoint shards:  29%|██▊       | 2/7 [00:31<01:19, 15.94s/it]Loading checkpoint shards:  29%|██▊       | 2/7 [00:31<01:20, 16.01s/it]Loading checkpoint shards:  43%|████▎     | 3/7 [00:43<00:56, 14.04s/it]Loading checkpoint shards:  43%|████▎     | 3/Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]Loading checkpoint shards:  14%|█▍        | 1/7 [00:15<01:33, 15.64s/it]Loading checkpoint shards:  14%|█▍        | 1/7 [00:15<01:34, 15.72s/it]Loading checkpoint shards:  14%|█▍        | 1/7 [00:16<01:37, 16.18s/it]Loading checkpoint shards:  14%|█▍        | 1/7 [00:16<01:37, 16.31s/it]Loading checkpoint shards:  29%|██▊       | 2/7 [00:30<01:15, 15.19s/it]Loading checkpoint shards:  29%|██▊       | 2/7 [00:32<01:21, 16.30s/it]Loading checkpoint shards:  29%|██▊       | 2/7 [00:32<01:21, 16.21s/it]Loading checkpoint shards:  29%|██▊       | 2/7 [00:32<01:21, 16.38s/it]Loading checkpoint shards:  43%|████▎     | 3/7 [00:45<00:58, 14.63s/it]Loading checkpoint shards:  43%|████▎     | 3/Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]Loading checkpoint shards:  14%|█▍        | 1/7 [00:17<01:42, 17.12s/it]Loading checkpoint shards:  14%|█▍        | 1/7 [00:17<01:43, 17.18s/it]Loading checkpoint shards:  14%|█▍        | 1/7 [00:17<01:42, 17.11s/it]Loading checkpoint shards:  14%|█▍        | 1/7 [00:17<01:46, 17.72s/it]Loading checkpoint shards:  29%|██▊       | 2/7 [00:31<01:17, 15.53s/it]Loading checkpoint shards:  29%|██▊       | 2/7 [00:31<01:17, 15.60s/it]Loading checkpoint shards:  29%|██▊       | 2/7 [00:31<01:18, 15.64s/it]Loading checkpoint shards:  29%|██▊       | 2/7 [00:31<01:18, 15.73s/it]Loading checkpoint shards:  43%|████▎     | 3/7 [00:46<01:00, 15.05s/it]Loading checkpoint shards:  43%|████▎     | 3/7 [00:43<00:56, 14.16s/it]Loading checkpoint shards:  43%|████▎     | 3/7 [00:47<01:03, 15.84s/it]Loading checkpoint shards:  43%|████▎     | 3/7 [00:47<01:04, 16.01s/it]Loading checkpoint shards:  57%|█████▋    | 4/7 [01:01<00:44, 14.99s/it]Loading checkpoint shards:  57%|█████▋    | 4/7 [01:01<00:45, 15.03s/it]Loading checkpoint shards:  57%|█████▋    | 4/7 [01:01<00:46, 15.56s/it]Loading checkpoint shards:  57%|█████▋    | 4/7 [01:01<00:46, 15.51s/it]Loading checkpoint shards:  71%|███████▏  | 5/7 [01:18<00:31, 15.94s/it]Loading checkpoint shards:  71%|███████▏  | 5/7 [01:18<00:32, 16.24s/it]Loading checkpoint shards:  71%|███████▏  | 5/7 [01:18<00:31, 15.98s/it]Loading checkpoint shards:  71%|███████▏  | 5/7 [01:18<00:32, 16.33s/it]Loading checkpoint shards:  86%|████████▌ | 6/7 [01:30<00:14, 14.85s/it]Loading checkpoint shards:  86%|████7 [00:46<01:00, 15.11s/it]Loading checkpoint shards:  43%|████▎     | 3/7 [00:46<01:00, 15.18s/it]Loading checkpoint shards:  43%|████▎     | 3/7 [00:46<01:00, 15.20s/it]Loading checkpoint shards:  57%|█████▋    | 4/7 [01:03<00:47, 15.89s/it]Loading checkpoint shards:  57%|█████▋    | 4/7 [01:03<00:47, 15.91s/it]Loading checkpoint shards:  57%|█████▋    | 4/7 [01:03<00:47, 15.91s/it]Loading checkpoint shards:  57%|█████▋    | 4/7 [01:03<00:47, 15.99s/it]Loading checkpoint shards:  71%|███████▏  | 5/7 [01:19<00:32, 16.18s/it]Loading checkpoint shards:  71%|███████▏  | 5/7 [01:20<00:32, 16.24s/it]Loading checkpoint shards:  71%|███████▏  | 5/7 [01:20<00:32, 16.42s/it]Loading checkpoint shards:  71%|███████▏  | 5/7 [01:20<00:32, 16.43s/it]Loading checkpoint shards:  86%|████████▌ | 6/7 [01:31<00:14, 14.63s/it]Loading checkpoint shards:  86%|████7 [00:45<00:58, 14.63s/it]Loading checkpoint shards:  43%|████▎     | 3/7 [00:45<00:59, 14.88s/it]Loading checkpoint shards:  43%|████▎     | 3/7 [00:45<00:58, 14.73s/it]Loading checkpoint shards:  57%|█████▋    | 4/7 [00:59<00:44, 14.72s/it]Loading checkpoint shards:  57%|█████▋    | 4/7 [01:01<00:45, 15.15s/it]Loading checkpoint shards:  57%|█████▋    | 4/7 [01:01<00:45, 15.30s/it]Loading checkpoint shards:  57%|█████▋    | 4/7 [01:01<00:45, 15.19s/it]Loading checkpoint shards:  71%|███████▏  | 5/7 [01:17<00:31, 15.63s/it]Loading checkpoint shards:  71%|███████▏  | 5/7 [01:17<00:31, 15.77s/it]Loading checkpoint shards:  71%|███████▏  | 5/7 [01:23<00:35, 17.99s/it]Loading checkpoint shards:  71%|███████▏  | 5/7 [01:24<00:35, 17.96s/it]Loading checkpoint shards:  86%|████████▌ | 6/7 [01:31<00:14, 14.94s/it]Loading checkpoint shards:  86%|████████▌ | 6/7 [01:31<00:15, 15.05s/it]Loading checkpoint shards:  86%|████████▌ | 6/7 [01:34<00:15, 15.56s/it]Loading checkpoint shards:  86%|████████▌ | 6/7 [01:34<00:15, 15.45s/it]Loading checkpoint shards: 100%|██████████| 7/7 [01:42<00:00, 13.20s/it]Loading checkpoint shards: 100%|██████████| 7/7 [01:42<00:00, 14.70s/it]
+Loading checkpoint shards: 100%|██████████| 7/7 [01:42<00:00, 13.86s/it]Loading checkpoint shards: 100%|██████████| 7/7 [01:42<00:00, 14.71s/it]
+Loading checkpoint shards: 100%|██████████| 7/7 [01:42<00:00, 13.95s/it]Loading checkpoint shards: 100%|██████████| 7/7 [01:42<00:00, 14.71s/it]
+Loading checkpoint shards: 100%|██████████| 7/7 [01:43<00:00, 13.14s/it]Loading checkpoint shards: 100%|██████████| 7/7 [01:43<00:00, 14.72s/it]
+Actor(
+  (model): LlamaForCausalLM(
+    (model): LlamaModel(
+      (embed_tokens): Embedding(32000, 8192)
+      (layers): ModuleList(
+        (0-47): 48 x LlamaDecoderLayer(
+          (self_attn): LlamaFlashAttention2(
+            (q_proj): Linear(in_features=8192, out_features=8192, bias=False)
+            (k_proj): Linear(in_features=8192, out_features=1024, bias=False)
+            (v_proj): Linear(in_features=8192, out_features=1024, bias=False)
+            (o_proj): Linear(in_features=8192, out_features=8192, bias=False)
+            (rotary_emb): LlamaRotaryEmbedding()
+          )
+          (mlp): LlamaMLP(
+            (gate_proj): Linear(in_features=8192, out_features=22016, bias=False)
+            (up_proj): Linear(in_features=8192, out_features=22016, bias=False)
+            (down_proj): Linear(in_features=22016, out_features=8192, bias=False)
+            (act_fn): SiLU()
+          )
+          (input_layernorm): LlamaRMSNorm()
+          (post_attention_layernorm): LlamaRMSNorm()
+        )
+      )
+      (norm): LlamaRMSNorm()
+    )
+    (lm_head): Linear(in_features=8192, out_features=32000, bias=False)
+  )
+)
+████▌ | 6/7 [01:31<00:14, 14.72s/it]Loading checkpoint shards:  86%|████████▌ | 6/7 [01:31<00:14, 14.79s/it]Loading checkpoint shards:  86%|████████▌ | 6/7 [01:31<00:15, 15.02s/it]Loading checkpoint shards: 100%|██████████| 7/7 [01:43<00:00, 14.08s/it]Loading checkpoint shards: 100%|██████████| 7/7 [01:43<00:00, 14.77s/it]
+Loading checkpoint shards: 100%|██████████| 7/7 [01:43<00:00, 13.96s/it]Loading checkpoint shards: 100%|██████████| 7/7 [01:43<00:00, 14.80s/it]
+Using /dssg/home/acct-msejzh/msejzh-user1/.cache/torch_extensions/py310_cu118 as PyTorch extensions root...
+Using /dssg/home/acct-msejzh/msejzh-user1/.cache/torch_extensions/py310_cu118 as PyTorch extensions root...
+Using /dssg/home/acct-msejzh/msejzh-user1/.cache/torch_extensions/py310_cu118 as PyTorch extensions root...
+Using /dssg/home/acct-msejzh/msejzh-user1/.cache/torch_extensions/py310_cu118 as PyTorch extensions root...
+████▌ | 6/7 [01:31<00:14, 14.63s/it]Loading checkpoint shards:  86%|████████▌ | 6/7 [01:32<00:14, 14.78s/it]Loading checkpoint shards:  86%|████████▌ | 6/7 [01:32<00:14, 14.95s/it]Loading checkpoint shards: 100%|██████████| 7/7 [01:44<00:00, 13.86s/it]Loading checkpoint shards: 100%|██████████| 7/7 [01:44<00:00, 14.86s/it]
+Loading checkpoint shards: 100%|██████████| 7/7 [01:44<00:00, 13.84s/it]Loading checkpoint shards: 100%|██████████| 7/7 [01:44<00:00, 14.88s/it]
+Loading checkpoint shards: 100%|██████████| 7/7 [01:44<00:00, 13.82s/it]Loading checkpoint shards: 100%|██████████| 7/7 [01:44<00:00, 14.88s/it]
+Loading checkpoint shards: 100%|██████████| 7/7 [01:44<00:00, 13.93s/it]Loading checkpoint shards: 100%|██████████| 7/7 [01:44<00:00, 14.92s/it]
+Loading checkpoint shards: 100%|██████████| 7/7 [01:44<00:00, 14.11s/it]Loading checkpoint shards: 100%|██████████| 7/7 [01:44<00:00, 14.86s/it]
+Using /dssg/home/acct-msejzh/msejzh-user1/.cache/torch_extensions/py310_cu118 as PyTorch extensions root...Using /dssg/home/acct-msejzh/msejzh-user1/.cache/torch_extensions/py310_cu118 as PyTorch extensions root...
+
+Using /dssg/home/acct-msejzh/msejzh-user1/.cache/torch_extensions/py310_cu118 as PyTorch extensions root...
+Loading checkpoint shards: 100%|██████████| 7/7 [01:44<00:00, 14.31s/it]Loading checkpoint shards: 100%|██████████| 7/7 [01:44<00:00, 14.90s/it]
+Using /dssg/home/acct-msejzh/msejzh-user1/.cache/torch_extensions/py310_cu118 as PyTorch extensions root...
+Using /dssg/home/acct-msejzh/msejzh-user1/.cache/torch_extensions/py310_cu118 as PyTorch extensions root...
+Using /dssg/home/acct-msejzh/msejzh-user1/.cache/torch_extensions/py310_cu118 as PyTorch extensions root...
+Using /dssg/home/acct-msejzh/msejzh-user1/.cache/torch_extensions/py310_cu118 as PyTorch extensions root...
+Using /dssg/home/acct-msejzh/msejzh-user1/.cache/torch_extensions/py310_cu118 as PyTorch extensions root...
